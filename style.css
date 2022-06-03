@@ -1,0 +1,22 @@
+#title {
+	text-align: center;
+	font-weight: bold;
+}
+#container {
+    width: 500px;
+    height: 500px;
+    background: whitesmoke;
+    display: grid;
+}
+
+.box {
+    border: 1px solid gray;
+    box-sizing: border-box;
+
+}
+
+.hover {
+	border: solid black;
+	background-color: aquamarine;
+
+}
