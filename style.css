@@ -10,13 +10,8 @@
 }
 
 .box {
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     box-sizing: border-box;
 
 }
 
-.hover {
-	border: solid black;
-	background-color: aquamarine;
-
-}

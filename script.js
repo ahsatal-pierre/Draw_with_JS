@@ -17,12 +17,30 @@ function hoverChangeColor(event) {
      event.target.style.backgroundColor = color;
 }
 
+// rainbow color 
+const buttonColor = document.getElementById('rainbowColor');
+buttonColor.addEventListener('click', rainbowColor);
+
+
+function rainbowColor() {
+    const colorR = Math.floor(Math.random() * 256);
+    const colorG = Math.floor(Math.random() * 256);
+    const colorB = Math.floor(Math.random() * 256);
+    newColor = `rgb(${colorR}, ${colorG}, ${colorB})`
+    setColor();
+}
+
+function setColor() {
+    color = newColor;
+}
+
 // new size
 
-function setSize(C) {
+function setSize() {
     size = newSize;
     createGrid(size);
 }
+
 const resetSize = document.getElementById('resetSize');
 resetSize.addEventListener('click', newGrid);
 
@@ -31,5 +49,8 @@ function newGrid() {
     container.innerHTML = '';
     setSize();
 }
+
+
+
 
 createGrid(size);
