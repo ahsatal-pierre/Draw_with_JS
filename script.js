@@ -34,7 +34,7 @@ function hoverChangeColor(event) {
 }
 
 // rainbow color
-const buttonColor = document.getElementById('rainbowColor');
+const buttonColor = document.getElementsByClassName('rainbowColor');
 buttonColor.addEventListener('click', rainbowColor);
 
 function rainbowColor() {
@@ -56,7 +56,7 @@ function setSize(newSize) {
   createGrid(size);
 }
 
-const resetSize = document.getElementById('resetSize');
+const resetSize = document.getElementsByClassName('resetSize');
 resetSize.addEventListener('click', newGrid);
 
 function newGrid() {
