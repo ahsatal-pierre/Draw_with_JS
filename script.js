@@ -1,6 +1,6 @@
 let color = '#3A8BBA';
-let size = 64;
-let isGridClickable = false;
+let size = 68;
+let isDrawing = false;
 
 function createGrid(size) {
   container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -12,23 +12,25 @@ function createGrid(size) {
     container.appendChild(newDiv);
   }
 
-  container.addEventListener('click', startDrawing);
+  container.addEventListener('click', toggleDrawing);
 }
 
-function startDrawing() {
-  if (!isGridClickable) {
+function toggleDrawing() {
+  isDrawing = !isDrawing;
+
+  if (isDrawing) {
     container.querySelectorAll('.box').forEach((box) => {
       box.addEventListener('mouseover', hoverChangeColor);
     });
-    isGridClickable = true;
+  } else {
+    container.querySelectorAll('.box').forEach((box) => {
+      box.removeEventListener('mouseover', hoverChangeColor);
+    });
   }
 }
 
-
 function hoverChangeColor(event) {
-  if (isGridClickable) {
-    event.target.style.backgroundColor = color;
-  }
+  event.target.style.backgroundColor = color;
 }
 
 // rainbow color
@@ -58,7 +60,7 @@ const resetSize = document.getElementById('resetSize');
 resetSize.addEventListener('click', newGrid);
 
 function newGrid() {
-  const newSize = prompt('Enter the new grid size:');
+  const newSize = prompt('Enter the new pencil size (The larger the number, the finer the pencil):');
   if (newSize !== null) {
     setSize(parseInt(newSize));
   }
